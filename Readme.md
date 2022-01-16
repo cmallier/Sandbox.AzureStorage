@@ -23,6 +23,14 @@ This project is done for learning purposes. It is not necessarily production qua
 > az storage container list \
 --account-name <name>
 
+> az appservice plan create --name blob-exercise-plan --resource-group learn-3478147d-6834-4459-8581-a1e741b13637 --sku FREE --location centralus
+
+> az webapp create --name <your-unique-app-name> --plan blob-exercise-plan --resource-group learn-3478147d-6834-4459-8581-a1e741b13637
+
+> CONNECTIONSTRING=$(az storage account show-connection-string --name <your-unique-storage-account-name> --output tsv)
+
+> az webapp config appsettings set --name <your-unique-app-name> --resource-group learn-3478147d-6834-4459-8581-a1e741b13637 --settings AzureStorageConfig:ConnectionString=$CONNECTIONSTRING AzureStorageConfig:FileContainerName=files
+
 ```
 
 ## Rest Api
@@ -67,3 +75,7 @@ Storage accounts offer a separate authentication mechanism called shared access 
 - [Azure Sdk Storage](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/storage)
 - [Azure Sdk Storage Blobs](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/storage/Azure.Storage.Blobs)
 - [Azure Storage Client Library for JavaScript](https://github.com/Azure/azure-storage-node#azure-storage-javascript-client-library-for-browsers)
+- [Index data from Azure Blob Storage using Azure Cognitive Search](https://docs.microsoft.com/en-us/azure/search/search-howto-indexing-azure-blob-storage)
+- [Naming and Referencing Containers, Blobs, and Metadata](https://docs.microsoft.com/en-us/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata)
+- [Security recommendations for Blob storage](https://docs.microsoft.com/en-us/azure/storage/blobs/security-recommendations)
+- [Configure an ASP.NET Core app for Azure App Service](https://docs.microsoft.com/en-us/azure/app-service/configure-language-dotnetcore?pivots=platform-windows)
